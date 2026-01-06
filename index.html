@@ -1,134 +1,112 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <title>مؤسسه آموزشی پایه هفتم تا نهم</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Vazirmatn', Tahoma, sans-serif;
-            direction: rtl;
-            margin: 0;
-            background: #f5f7fa;
-        }
-        header {
-            background: linear-gradient(90deg,#2c7be5,#4aa1f3);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-        header p {
-            margin: 5px 0 0;
-            font-size: 18px;
-        }
-        nav {
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #2c7be5;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #1a5bb8;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .box {
-            background: white;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #2c7be5;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #1a5bb8;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #ddd;
-            margin-top: 30px;
-        }
-        iframe {
-            width: 100%;
-            border: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>مؤسسه آموزشی پایه هفتم تا نهم</title>
+<link href="https://fonts.googleapis.com/css2?family=B+Nazanin&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'B Nazanin', Tahoma, sans-serif;
+    margin:0; padding:0; direction:rtl; background:#f5f7fa;
+}
+
+/* ===== نوار بالا ===== */
+header {
+    background:#2c7be5;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+}
+header .logo {
+    font-size:22px; font-weight:bold;
+}
+header nav a {
+    color:white; text-decoration:none; margin:0 10px; font-weight:bold;
+    transition:0.3s; padding:5px 10px; border-radius:5px;
+}
+header nav a:hover {
+    background:white; color:#2c7be5; font-size:1.1em;
+}
+header input[type="search"] {
+    padding:5px 10px; border-radius:5px; border:none;
+}
+
+/* ===== صفحات ===== */
+section {
+    display:none;
+    padding:40px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+section.active { display:block; }
+
+.box {
+    background:white; padding:25px; margin:20px 0; border-radius:10px; 
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.btn {
+    display:inline-block; padding:12px 25px; background:#2c7be5; color:white; text-decoration:none; border-radius:8px; margin-top:15px; transition:0.3s;
+}
+.btn:hover { background:#1a5bb8; font-size:1.05em; }
+
+/* ===== چت بات ===== */
+#chatbot {
+    position:fixed; bottom:20px; left:20px;
+    background:#2c7be5; color:white; border-radius:50%; width:60px; height:60px; display:flex; justify-content:center; align-items:center; cursor:pointer; font-size:24px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2); z-index:1000;
+}
+#chatbox {
+    position:fixed; bottom:90px; left:20px;
+    width:300px; max-width:90%; background:white; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.3); display:none; flex-direction:column;
+    z-index:1000;
+}
+#chatbox-header { background:#2c7be5; color:white; padding:10px; border-radius:10px 10px 0 0; font-weight:bold; text-align:center; }
+#chatbox-messages { padding:10px; flex:1; min-height:100px; overflow-y:auto; }
+#chatbox-input { display:flex; border-top:1px solid #ddd; }
+#chatbox-input input { flex:1; padding:10px; border:none; border-radius:0 0 0 0; outline:none; }
+#chatbox-input button { background:#2c7be5; color:white; border:none; padding:10px 15px; cursor:pointer; }
+
+footer {
+    text-align:center; padding:20px; background:#ddd;
+}
+</style>
 </head>
 <body>
 
-<!-- ====== Header ====== -->
+<!-- ===== Header ===== -->
 <header>
-    <h1>مؤسسه آموزشی پایه هفتم تا نهم</h1>
-    <p>آموزش مفهومی | حل تمرین | آمادگی امتحان</p>
+    <div class="logo">مؤسسه آموزشی</div>
+    <nav>
+        <a href="#" onclick="showSection('home')">صفحه اصلی</a>
+        <a href="#" onclick="showSection('about')">درباره ما</a>
+        <a href="#" onclick="showSection('contact')">ارتباط با ما</a>
+        <a href="#" onclick="showSection('live')">پخش زنده</a>
+        <a href="#" onclick="showSection('register')">ثبت نام</a>
+        <a href="#" onclick="showSection('samples')">نمونه سوالات</a>
+    </nav>
+    <input type="search" placeholder="جستجو...">
 </header>
 
-<!-- ====== Navigation ====== -->
-<nav>
-    <a href="#home">صفحه اصلی</a>
-    <a href="#about">درباره ما</a>
-    <a href="#contact">ارتباط با ما</a>
-    <a href="#live">پخش زنده</a>
-    <a href="#register">ثبت نام</a>
-    <a href="#samples">نمونه سوالات</a>
-</nav>
-
-<!-- ====== Home Section ====== -->
-<section id="home">
-    <div class="box">
-        <h2>صفحه اصلی</h2>
-        <p>خوش آمدید به مؤسسه ما. آموزش تخصصی پایه هفتم، هشتم و نهم با روش‌های جذاب و مفهومی. هر پایه صفحه مخصوص خودش را دارد و می‌توانید کلاس‌ها، نمونه سوالات و پخش زنده را دنبال کنید.</p>
-    </div>
+<!-- ===== صفحات ===== -->
+<section id="home" class="active">
+    <div class="box"><h2>صفحه اصلی</h2><p>خوش آمدید به مؤسسه آموزشی پایه هفتم تا نهم. آموزش مفهومی و جذاب.</p></div>
 </section>
 
-<!-- ====== About Section ====== -->
 <section id="about">
-    <div class="box">
-        <h2>درباره ما</h2>
-        <p>مؤسسه ما با هدف آموزش مفهومی و حل تمرین دانش‌آموزان پایه هفتم تا نهم راه‌اندازی شده است. ما کلاس‌های آنلاین و حضوری برگزار می‌کنیم و با ارائه نمونه سوالات و پخش زنده، همیشه همراه دانش‌آموزان هستیم.</p>
-    </div>
+    <div class="box"><h2>درباره ما</h2><p>مؤسسه ما با هدف آموزش مفهومی دانش‌آموزان فعالیت می‌کند.</p></div>
 </section>
 
-<!-- ====== Contact Section ====== -->
 <section id="contact">
-    <div class="box">
-        <h2>ارتباط با ما</h2>
-        <p>برای مشاوره و پرسش درباره کلاس‌ها می‌توانید از روش‌های زیر استفاده کنید:</p>
-        <ul>
-            <li>تلفن: ۰۹۱۲xxxxxxx</li>
-            <li>ایمیل: info@example.com</li>
-            <li>آدرس: تهران، خیابان آموزش، پلاک ۱۲۳</li>
-        </ul>
+    <div class="box"><h2>ارتباط با ما</h2>
+        <p>شماره تلفن: 09050944755<br>ایمیل: emadreza1591@gmail.com</p>
     </div>
 </section>
 
-<!-- ====== Live Section ====== -->
 <section id="live">
-    <div class="box">
-        <h2>پخش زنده</h2>
+    <div class="box"><h2>پخش زنده</h2>
         <style>.h_iframe-aparat_embed_frame{position:relative;} .h_iframe-aparat_embed_frame .ratio {display:block;width:100%;height:auto;} .h_iframe-aparat_embed_frame iframe {position:absolute;top:0;left:0;width:100%; height:100%;}</style>
         <div class="h_iframe-aparat_embed_frame">
             <span style="display: block;padding-top: 57%"></span>
@@ -138,28 +116,62 @@
     </div>
 </section>
 
-<!-- ====== Register Section ====== -->
 <section id="register">
-    <div class="box">
-        <h2>ثبت نام دانش‌آموز</h2>
-        <p>برای ثبت نام، روی دکمه زیر کلیک کنید:</p>
+    <div class="box"><h2>ثبت نام</h2>
         <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">فرم ثبت نام</a>
     </div>
 </section>
 
-<!-- ====== Samples Section ====== -->
 <section id="samples">
-    <div class="box">
-        <h2>نمونه سوالات</h2>
-        <p>برای مشاهده نمونه سوالات پایه‌های مختلف، روی لینک زیر کلیک کنید:</p>
+    <div class="box"><h2>نمونه سوالات</h2>
         <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">نمونه سوالات</a>
     </div>
 </section>
 
-<!-- ====== Footer ====== -->
+<!-- ===== Footer ===== -->
 <footer>
-    <p>© مؤسسه آموزشی شما</p>
+    شماره تلفن: 09050944755 | ایمیل: emadreza1591@gmail.com
 </footer>
+
+<!-- ===== Chat Bot ===== -->
+<div id="chatbot" onclick="toggleChat()">💬</div>
+<div id="chatbox">
+    <div id="chatbox-header">چت بات</div>
+    <div id="chatbox-messages">
+        <p>سلام! لطفاً به شماره 09050944755 پیام دهید.</p>
+    </div>
+    <div id="chatbox-input">
+        <input type="text" placeholder="پیام خود را بنویسید...">
+        <button onclick="sendMessage()">ارسال</button>
+    </div>
+</div>
+
+<script>
+// ===== نمایش صفحات =====
+function showSection(id){
+    const sections = document.querySelectorAll('section');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// ===== چت بات =====
+function toggleChat(){
+    const box = document.getElementById('chatbox');
+    box.style.display = box.style.display==='flex'?'none':'flex';
+}
+function sendMessage(){
+    const input = document.querySelector('#chatbox input');
+    const msg = input.value.trim();
+    if(msg!==''){
+        const messages = document.getElementById('chatbox-messages');
+        const p = document.createElement('p');
+        p.textContent = `پیام شما: ${msg}\nلطفاً به شماره 09050944755 پیام دهید.`;
+        messages.appendChild(p);
+        messages.scrollTop = messages.scrollHeight;
+        input.value='';
+    }
+}
+</script>
 
 </body>
 </html>
