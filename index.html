@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
-<title>مؤسسه آموزشی پایه هفتم تا نهم</title>
+<title>موسسه آموزش پلاس</title>
 <link href="https://fonts.googleapis.com/css2?family=B+Nazanin&display=swap" rel="stylesheet">
 <style>
 body {
@@ -18,6 +18,9 @@ header {
     justify-content:space-between;
     align-items:center;
     padding:10px 20px;
+    position: sticky;
+    top:0;
+    z-index:999;
 }
 header .logo {
     font-size:22px; font-weight:bold;
@@ -45,6 +48,7 @@ section.active { display:block; }
 .box {
     background:white; padding:25px; margin:20px 0; border-radius:10px; 
     box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    text-align:center;
 }
 
 .btn {
@@ -55,22 +59,26 @@ section.active { display:block; }
 /* ===== چت بات ===== */
 #chatbot {
     position:fixed; bottom:20px; left:20px;
-    background:#2c7be5; color:white; border-radius:50%; width:60px; height:60px; display:flex; justify-content:center; align-items:center; cursor:pointer; font-size:24px;
-    box-shadow:0 5px 10px rgba(0,0,0,0.2); z-index:1000;
+    background:#ff5722; color:white; border-radius:50%; width:70px; height:70px; display:flex; justify-content:center; align-items:center; cursor:pointer; font-size:28px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:1000;
+    transition:0.3s;
 }
+#chatbot:hover { transform: scale(1.1); }
+
 #chatbox {
-    position:fixed; bottom:90px; left:20px;
-    width:300px; max-width:90%; background:white; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.3); display:none; flex-direction:column;
+    position:fixed; bottom:100px; left:20px;
+    width:320px; max-width:90%; background:white; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.3); display:none; flex-direction:column;
     z-index:1000;
 }
-#chatbox-header { background:#2c7be5; color:white; padding:10px; border-radius:10px 10px 0 0; font-weight:bold; text-align:center; }
-#chatbox-messages { padding:10px; flex:1; min-height:100px; overflow-y:auto; }
+#chatbox-header { background:#ff5722; color:white; padding:10px; border-radius:15px 15px 0 0; font-weight:bold; text-align:center; font-size:16px;}
+#chatbox-messages { padding:10px; flex:1; min-height:120px; overflow-y:auto; font-size:14px;}
 #chatbox-input { display:flex; border-top:1px solid #ddd; }
-#chatbox-input input { flex:1; padding:10px; border:none; border-radius:0 0 0 0; outline:none; }
-#chatbox-input button { background:#2c7be5; color:white; border:none; padding:10px 15px; cursor:pointer; }
+#chatbox-input input { flex:1; padding:10px; border:none; border-radius:0; outline:none; font-size:14px; }
+#chatbox-input button { background:#ff5722; color:white; border:none; padding:10px 15px; cursor:pointer; font-size:14px; }
 
 footer {
     text-align:center; padding:20px; background:#ddd;
+    font-size:14px;
 }
 </style>
 </head>
@@ -78,35 +86,58 @@ footer {
 
 <!-- ===== Header ===== -->
 <header>
-    <div class="logo">مؤسسه آموزش پلاس</div>
+    <div class="logo">موسسه آموزش پلاس</div>
     <nav>
         <a href="#" onclick="showSection('home')">صفحه اصلی</a>
+        <a href="#" onclick="showSection('bases')">پایه‌ها</a>
         <a href="#" onclick="showSection('about')">درباره ما</a>
         <a href="#" onclick="showSection('contact')">ارتباط با ما</a>
         <a href="#" onclick="showSection('live')">پخش زنده</a>
-        <a href="#" onclick="showSection('register')">ثبت نام</a>
+        <a href="#" onclick="showSection('courses')">دوره‌ها</a>
         <a href="#" onclick="showSection('samples')">نمونه سوالات</a>
     </nav>
     <input type="search" placeholder="جستجو...">
 </header>
 
-<!-- ===== صفحات ===== -->
+<!-- ===== Home Section ===== -->
 <section id="home" class="active">
-    <div class="box"><h2>صفحه اصلی</h2><p>خوش آمدید به سایت مؤسسه آموزشی آموزش پلاس منسب برای پایه هفتم تا نهم. آموزش مفهومی و جذاب.</p></div>
+    <div class="box">
+        <h2>به سایت مجتمع علمی و آموزشی آموزش پلاس خوش آمدید</h2>
+        <p>مناسب برای پایه های هفتم و هشتم و نهم</p>
+        <p>آموزش جذاب و مدرن</p>
+        <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">ثبت نام در دوره آموزشی</a>
+    </div>
 </section>
 
+<!-- ===== Bases Section ===== -->
+<section id="bases">
+    <div class="box">
+        <h2>پایه‌ها</h2>
+        <a class="btn" href="#">پایه هفتم</a>
+        <a class="btn" href="#">پایه هشتم</a>
+        <a class="btn" href="#">پایه نهم</a>
+    </div>
+</section>
+
+<!-- ===== About Section ===== -->
 <section id="about">
-    <div class="box"><h2>درباره ما</h2><p>مؤسسه ما با هدف آموزش مفهومی دانش‌آموزان فعالیت می‌کند.</p></div>
+    <div class="box"><h2>درباره ما</h2>
+        <p>مؤسسه ما با هدف آموزش مفهومی و حل تمرین دانش‌آموزان پایه هفتم تا نهم فعالیت می‌کند.</p>
+    </div>
 </section>
 
+<!-- ===== Contact Section ===== -->
 <section id="contact">
-    <div class="box"><h2>ارتباط با ما</h2>
+    <div class="box">
+        <h2>ارتباط با ما</h2>
         <p>شماره تلفن: 09050944755<br>ایمیل: emadreza1591@gmail.com</p>
     </div>
 </section>
 
+<!-- ===== Live Section ===== -->
 <section id="live">
-    <div class="box"><h2>پخش زنده</h2>
+    <div class="box">
+        <h2>پخش زنده</h2>
         <style>.h_iframe-aparat_embed_frame{position:relative;} .h_iframe-aparat_embed_frame .ratio {display:block;width:100%;height:auto;} .h_iframe-aparat_embed_frame iframe {position:absolute;top:0;left:0;width:100%; height:100%;}</style>
         <div class="h_iframe-aparat_embed_frame">
             <span style="display: block;padding-top: 57%"></span>
@@ -116,29 +147,40 @@ footer {
     </div>
 </section>
 
-<section id="register">
-    <div class="box"><h2>ثبت نام</h2>
-        <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">فرم ثبت نام</a>
+<!-- ===== Courses Section ===== -->
+<section id="courses">
+    <div class="box">
+        <h2>دوره‌های آموزشی</h2>
+        <img src="https://via.placeholder.com/600x150.png?text=لوگو+دوره" alt="لوگو دوره" style="max-width:100%; margin-bottom:15px; border-radius:10px;">
+        <div class="box">
+            <h3>دوره آموزشی ریاضیات پایه هشتم</h3>
+            <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">ثبت نام</a>
+        </div>
     </div>
 </section>
 
+<!-- ===== Samples Section ===== -->
 <section id="samples">
-    <div class="box"><h2>نمونه سوالات</h2>
-        <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">نمونه سوالات</a>
+    <div class="box">
+        <h2>نمونه سوالات</h2>
+        <a class="btn" href="#">پایه هفتم</a>
+        <a class="btn" href="#">پایه هشتم</a>
+        <a class="btn" href="#">پایه نهم</a>
     </div>
 </section>
 
 <!-- ===== Footer ===== -->
 <footer>
-    شماره تلفن: 09050944755 | ایمیل: emadreza1591@gmail.com | خراسان رضوی مشهد
+    شماره تلفن: 09050944755 | ایمیل: emadreza1591@gmail.com
 </footer>
 
 <!-- ===== Chat Bot ===== -->
 <div id="chatbot" onclick="toggleChat()">💬</div>
 <div id="chatbox">
-    <div id="chatbox-header">چت بات</div>
+    <div id="chatbox-header">چت بات آموزش پلاس</div>
     <div id="chatbox-messages">
-        <p>سلام به شما! لطفاً به شماره 09050944755 پیام دهید.</p>
+        <p>سلام! برای مشاوره لطفاً به شماره 09050944755 پیام دهید.</p>
+        <p><a class="btn" href="https://eitaa.com/yourchannel" target="_blank">عضویت در کانال ایتا</a></p>
     </div>
     <div id="chatbox-input">
         <input type="text" placeholder="پیام خود را بنویسید...">
