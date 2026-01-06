@@ -22,9 +22,7 @@ header {
     top:0;
     z-index:999;
 }
-header .logo {
-    font-size:22px; font-weight:bold;
-}
+header .logo { font-size:22px; font-weight:bold; }
 header nav a {
     color:white; text-decoration:none; margin:0 10px; font-weight:bold;
     transition:0.3s; padding:5px 10px; border-radius:5px;
@@ -37,26 +35,21 @@ header input[type="search"] {
 }
 
 /* ===== صفحات ===== */
-section {
-    display:none;
-    padding:40px 20px;
-    max-width:1000px;
-    margin:auto;
-}
+section { display:none; padding:40px 20px; max-width:1000px; margin:auto; }
 section.active { display:block; }
 
 .box {
     background:white; padding:25px; margin:20px 0; border-radius:10px; 
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05); text-align:center; transition:0.3s;
 }
+.box:hover { transform:scale(1.03); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 
 .btn {
     display:inline-block; padding:12px 25px; background:#2c7be5; color:white; text-decoration:none; border-radius:8px; margin-top:15px; transition:0.3s;
 }
 .btn:hover { background:#1a5bb8; font-size:1.05em; }
 
-/* ===== چت بات ===== */
+/* ===== Chat Bot ===== */
 #chatbot {
     position:fixed; bottom:20px; left:20px;
     background:#ff5722; color:white; border-radius:50%; width:70px; height:70px; display:flex; justify-content:center; align-items:center; cursor:pointer; font-size:28px;
@@ -76,10 +69,17 @@ section.active { display:block; }
 #chatbox-input input { flex:1; padding:10px; border:none; border-radius:0; outline:none; font-size:14px; }
 #chatbox-input button { background:#ff5722; color:white; border:none; padding:10px 15px; cursor:pointer; font-size:14px; }
 
-footer {
-    text-align:center; padding:20px; background:#ddd;
-    font-size:14px;
-}
+/* ===== تصاویر و لوگو ===== */
+img.responsive { max-width:100%; border-radius:10px; margin-bottom:15px; }
+
+/* ===== Footer ===== */
+footer { text-align:center; padding:20px; background:#ddd; font-size:14px; }
+
+/* ===== FAQ ===== */
+.faq { text-align:right; margin-top:10px; }
+.faq h4 { cursor:pointer; background:#2c7be5; color:white; padding:10px; border-radius:5px; margin-bottom:5px; transition:0.3s; }
+.faq h4:hover { background:#1a5bb8; }
+.faq p { display:none; padding:10px; background:#f0f0f0; border-radius:5px; }
 </style>
 </head>
 <body>
@@ -95,6 +95,9 @@ footer {
         <a href="#" onclick="showSection('live')">پخش زنده</a>
         <a href="#" onclick="showSection('courses')">دوره‌ها</a>
         <a href="#" onclick="showSection('samples')">نمونه سوالات</a>
+        <a href="#" onclick="showSection('support')">حمایت از مجموعه</a>
+        <a href="#" onclick="showSection('products')">محصولات</a>
+        <a href="#" onclick="showSection('faq')">FAQ</a>
     </nav>
     <input type="search" placeholder="جستجو...">
 </header>
@@ -103,9 +106,10 @@ footer {
 <section id="home" class="active">
     <div class="box">
         <h2>به سایت مجتمع علمی و آموزشی آموزش پلاس خوش آمدید</h2>
-        <p>مناسب برای پایه های هفتم و هشتم و نهم</p>
+        <p>مناسب برای پایه های هفتم، هشتم و نهم</p>
         <p>آموزش جذاب و مدرن</p>
         <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">ثبت نام در دوره آموزشی</a>
+        <img class="responsive" src="https://via.placeholder.com/600x200.png?text=تصویر+کلاس" alt="کلاس">
     </div>
 </section>
 
@@ -113,16 +117,18 @@ footer {
 <section id="bases">
     <div class="box">
         <h2>پایه‌ها</h2>
-        <a class="btn" href="#">پایه هفتم</a>
-        <a class="btn" href="#">پایه هشتم</a>
-        <a class="btn" href="#">پایه نهم</a>
+        <a class="btn" href="#" onclick="alert('پایه هفتم')">پایه هفتم</a>
+        <a class="btn" href="#" onclick="alert('پایه هشتم')">پایه هشتم</a>
+        <a class="btn" href="#" onclick="alert('پایه نهم')">پایه نهم</a>
     </div>
 </section>
 
 <!-- ===== About Section ===== -->
 <section id="about">
-    <div class="box"><h2>درباره ما</h2>
-        <p>مؤسسه ما با هدف آموزش مفهومی و حل تمرین دانش‌آموزان پایه هفتم تا نهم فعالیت می‌کند.</p>
+    <div class="box">
+        <h2>درباره ما</h2>
+        <p>مؤسسه آموزش پلاس با هدف آموزش مفهومی و حل تمرین دانش‌آموزان پایه هفتم تا نهم فعالیت می‌کند.</p>
+        <img class="responsive" src="https://via.placeholder.com/600x150.png?text=معلم+درحال+آموزش" alt="معلم">
     </div>
 </section>
 
@@ -140,7 +146,7 @@ footer {
         <h2>پخش زنده</h2>
         <style>.h_iframe-aparat_embed_frame{position:relative;} .h_iframe-aparat_embed_frame .ratio {display:block;width:100%;height:auto;} .h_iframe-aparat_embed_frame iframe {position:absolute;top:0;left:0;width:100%; height:100%;}</style>
         <div class="h_iframe-aparat_embed_frame">
-            <span style="display: block;padding-top: 57%"></span>
+            <span style="display:block;padding-top:57%"></span>
             <iframe scrolling="no" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  
             src="https://www.aparat.com/embed/live/Heshmat.1234"></iframe>
         </div>
@@ -151,9 +157,14 @@ footer {
 <section id="courses">
     <div class="box">
         <h2>دوره‌های آموزشی</h2>
-        <img src="https://via.placeholder.com/600x150.png?text=لوگو+دوره" alt="لوگو دوره" style="max-width:100%; margin-bottom:15px; border-radius:10px;">
         <div class="box">
-            <h3>دوره آموزشی ریاضیات پایه هشتم</h3>
+            <h3>ریاضیات پایه هشتم</h3>
+            <img class="responsive" src="https://via.placeholder.com/600x150.png?text=ریاضیات" alt="ریاضیات">
+            <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">ثبت نام</a>
+        </div>
+        <div class="box">
+            <h3>هوش و استعداد تحلیلی</h3>
+            <img class="responsive" src="https://via.placeholder.com/600x150.png?text=هوش+و+استعداد" alt="هوش">
             <a class="btn" href="https://digiform.ir/wc8895eb9" target="_blank">ثبت نام</a>
         </div>
     </div>
@@ -163,15 +174,60 @@ footer {
 <section id="samples">
     <div class="box">
         <h2>نمونه سوالات</h2>
-        <a class="btn" href="#">پایه هفتم</a>
-        <a class="btn" href="#">پایه هشتم</a>
-        <a class="btn" href="#">پایه نهم</a>
+        <a class="btn" href="#" onclick="alert('نمونه سوالات پایه هفتم')">پایه هفتم</a>
+        <a class="btn" href="#" onclick="alert('نمونه سوالات پایه هشتم')">پایه هشتم</a>
+        <a class="btn" href="#" onclick="alert('نمونه سوالات پایه نهم')">پایه نهم</a>
+    </div>
+</section>
+
+<!-- ===== Support Section ===== -->
+<section id="support">
+    <div class="box">
+        <h2>حمایت از مجموعه</h2>
+        <p>اطلاعات کارت: 5022 2915 4709 0470 به نام عماد رضا عباس پور بانک پاسارگاد</p>
+        <form>
+            <input type="text" placeholder="نام و نام خانوادگی" style="width:90%; padding:10px; margin:5px;"><br>
+            <input type="text" placeholder="شماره تلفن" style="width:90%; padding:10px; margin:5px;"><br>
+            <input type="file" style="margin:10px 0;"><br>
+            <button class="btn" type="submit">ارسال</button>
+        </form>
+    </div>
+</section>
+
+<!-- ===== Products Section ===== -->
+<section id="products">
+    <div class="box">
+        <h2>محصولات</h2>
+        <img class="responsive" src="https://via.placeholder.com/600x150.png?text=لوگو+محصولات" alt="لوگو محصولات">
+        <div class="box">
+            <h3>کتاب پایتون پلاس</h3>
+            <a class="btn" href="#">خرید</a>
+        </div>
+        <div class="box">
+            <h3>کتاب ریاضیات پیشرفته پایه هفتم</h3>
+            <a class="btn" href="#">خرید</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ Section ===== -->
+<section id="faq">
+    <div class="box">
+        <h2>سوالات متداول</h2>
+        <div class="faq">
+            <h4>ثبت‌نام چگونه است؟</h4>
+            <p>برای ثبت‌نام کافیست روی دکمه ثبت‌نام کلیک کنید و فرم مربوطه را پر کنید.</p>
+        </div>
+        <div class="faq">
+            <h4>هزینه دوره‌ها چقدر است؟</h4>
+            <p>هزینه هر دوره در صفحه ثبت‌نام مشخص شده است و قابل مشاهده می‌باشد.</p>
+        </div>
     </div>
 </section>
 
 <!-- ===== Footer ===== -->
 <footer>
-    شماره تلفن: 09050944755 | ایمیل: emadreza1591@gmail.com
+شماره تلفن: 09050944755 | ایمیل: emadreza1591@gmail.com
 </footer>
 
 <!-- ===== Chat Bot ===== -->
@@ -180,7 +236,7 @@ footer {
     <div id="chatbox-header">چت بات آموزش پلاس</div>
     <div id="chatbox-messages">
         <p>سلام! برای مشاوره لطفاً به شماره 09050944755 پیام دهید.</p>
-        <p><a class="btn" href="https://eitaa.com/amozshplus" target="_blank">عضویت در کانال ایتا</a></p>
+        <p><a class="btn" href="https://eitaa.com/yourchannel" target="_blank">عضویت در کانال ایتا</a></p>
     </div>
     <div id="chatbox-input">
         <input type="text" placeholder="پیام خود را بنویسید...">
@@ -196,7 +252,12 @@ function showSection(id){
     document.getElementById(id).classList.add('active');
 }
 
-// ===== چت بات =====
+// ===== FAQ Toggle =====
+document.querySelectorAll('.faq h4').forEach(faq=>{
+    faq.onclick=()=>faq.nextElementSibling.style.display=faq.nextElementSibling.style.display==='block'?'none':'block';
+});
+
+// ===== Chat Bot =====
 function toggleChat(){
     const box = document.getElementById('chatbox');
     box.style.display = box.style.display==='flex'?'none':'flex';
