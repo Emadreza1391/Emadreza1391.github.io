@@ -1,50 +1,56 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Emad Reza Abbaspour | Smart Education</title>
+<title>عماد رضا عباس پور | پلتفرم آموزش هوشمند</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:tahoma;background:linear-gradient(135deg,#020617,#0f172a);color:#fff}
 a{text-decoration:none;color:#fff}
+img{max-width:100%;display:block}
 
 /* ===== NAVBAR ===== */
-.navbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(2,6,23,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+.navbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:15px 30px;background:#020617;position:sticky;top:0;z-index:100}
 .logo{font-size:22px;font-weight:bold}
 .navbar nav a{margin:0 5px;padding:8px 16px;border-radius:30px;cursor:pointer;transition:.4s}
 .navbar nav a:hover{background:#38bdf8;color:#000;transform:scale(1.15)}
-
-.top-search{flex:1;max-width:300px;padding:8px 15px;border-radius:25px;border:none}
-select{background:#020617;color:#fff;border-radius:10px;padding:6px}
+.top-search{max-width:300px;padding:8px 15px;border-radius:25px;border:none}
 
 /* ===== PAGES ===== */
 .page{display:none;min-height:100vh;padding:80px 20px;animation:fade 1s}
 .page.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(40px)}to{opacity:1}}
 
-/* ===== HERO ===== */
+/* ===== HOME ===== */
 .hero{text-align:center;max-width:1100px;margin:auto}
-.hero h1{font-size:42px;margin-bottom:10px}
+.hero h1{font-size:40px}
 .hero p{line-height:2;font-size:18px}
-.hero img{width:120px;margin:20px}
+.hero img{width:140px;margin:20px auto}
 
-/* ===== SECTIONS ===== */
 .section{margin-top:60px}
 .section h2{text-align:center;margin-bottom:30px}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
 .card{background:#020617;padding:25px;border-radius:25px;text-align:center;transition:.5s}
 .card:hover{transform:scale(1.1);box-shadow:0 0 30px #38bdf8}
-.card img{width:70px;margin-bottom:10px}
+.card img{width:70px;margin:0 auto 10px}
 
-.sample{background:#020617;padding:25px;border-radius:25px;margin-top:20px}
+.sample-video{background:#020617;padding:25px;border-radius:25px}
 
 /* ===== COURSES ===== */
 .search{display:block;margin:20px auto;padding:12px;width:80%;border-radius:30px;border:none}
 .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
 .course{background:#020617;padding:20px;border-radius:25px;text-align:center;transition:.5s}
 .course:hover{transform:scale(1.1);box-shadow:0 0 30px #38bdf8}
-.buy-btn{display:inline-block;margin-top:10px;padding:3px 8px;border-radius:2px;color:#fff;background:#5cb85c}
+
+.buy-btn{
+padding:3px 8px;
+border-radius:2px;
+color:#fff;
+background-color:#5cb85c;
+display:inline-block;
+margin-top:10px;
+}
 
 /* ===== CHAT ===== */
 #chatBtn{position:fixed;bottom:20px;right:20px;background:#38bdf8;color:#000;padding:15px;border-radius:50%;cursor:pointer;z-index:200}
@@ -58,90 +64,98 @@ footer{text-align:center;padding:25px;background:#020617}
 <body>
 
 <header class="navbar">
-  <div class="logo" data-i18n="siteName">Emad Reza Abbaspour</div>
-  <input id="pageSearch" class="top-search" placeholder="Search pages...">
+  <div class="logo">عماد رضا عباس پور</div>
+  <input id="pageSearch" class="top-search" placeholder="جستجوی صفحات...">
   <nav>
-    <a onclick="showPage('home')" data-i18n="home">Home</a>
-    <a onclick="showPage('about')" data-i18n="about">About</a>
-    <a onclick="showPage('courses')" data-i18n="courses">Courses</a>
-    <a onclick="showPage('live')" data-i18n="live">Live</a>
+    <a onclick="showPage('home')">خانه</a>
+    <a onclick="showPage('about')">درباره ما</a>
+    <a onclick="showPage('courses')">دوره‌ها</a>
+    <a onclick="showPage('live')">پخش زنده</a>
   </nav>
-  <select onchange="setLang(this.value)">
-    <option value="fa">FA</option>
-    <option value="en">EN</option>
-    <option value="ar">AR</option>
-  </select>
 </header>
 
 <!-- ===== HOME ===== -->
 <section id="home" class="page active">
   <div class="hero">
-    <img src="https://via.placeholder.com/120">
-    <h1 data-i18n="welcome">Welcome to Smart Education Platform</h1>
-    <p data-i18n="homeText">
-      This platform is designed to improve scientific knowledge using modern and intelligent teaching methods.
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="لوگو">
+    <h1>به پلتفرم آموزش هوشمند خوش آمدید</h1>
+    <p>
+      این سایت با هدف ارتقا سطح علمی مردم ایران طراحی شده است و آموزش‌هایی مدرن، مفهومی و آینده‌محور ارائه می‌دهد.
     </p>
   </div>
 
   <div class="section">
-    <h2 data-i18n="why">Why Choose Us?</h2>
+    <h2>چرا ما؟</h2>
     <div class="cards">
-      <div class="card"><img src="https://via.placeholder.com/70"><p data-i18n="f1">Conceptual Learning</p></div>
-      <div class="card"><img src="https://via.placeholder.com/70"><p data-i18n="f2">Artificial Intelligence</p></div>
-      <div class="card"><img src="https://via.placeholder.com/70"><p data-i18n="f3">Expert Instructor</p></div>
-      <div class="card"><img src="https://via.placeholder.com/70"><p data-i18n="f4">Future Skills</p></div>
+      <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"><p>آموزش مفهومی</p></div>
+      <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"><p>هوش مصنوعی</p></div>
+      <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png"><p>مدرس متخصص</p></div>
+      <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png"><p>آینده‌سازی</p></div>
     </div>
   </div>
 
   <div class="section">
-    <h2 data-i18n="sample">Sample Lesson</h2>
-    <div class="sample">
-      <p data-i18n="sampleText">In this sample lesson you will learn how to think analytically and solve problems step by step.</p>
+    <h2>نمونه آموزش (هوش مصنوعی)</h2>
+    <div class="sample-video">
+      <div id="46812378643"><script type="text/JavaScript" src="https://www.aparat.com/embed/ntax7bw?data[rnddiv]=46812378643&data[responsive]=yes"></script></div>
     </div>
   </div>
 </section>
 
 <!-- ===== ABOUT ===== -->
 <section id="about" class="page">
-  <h2 data-i18n="aboutTitle">About Me</h2>
-  <p data-i18n="aboutText">
-I am Emad Reza Abbaspour, instructor of artificial intelligence, mathematics, advanced sciences, astronomy and chess.
-I built this site to help improve the scientific level of society through quality education.
-Please support by enrolling in courses and sharing the site.
+  <h2>معرفی من</h2>
+  <p>
+    من عماد رضا عباس پور هستم مدرس هوش مصنوعی، ریاضیات، علوم پیشرفته، نجوم و شطرنج و همچنین برنامه‌نویس و طراح سایت.
+    این سایت را به منظور ارتقا سطح علمی مردم ایران ساختم تا با آموزش‌های متنوع به رشد جامعه کمک کنم.
+    تنها کاری که شما می‌توانید انجام دهید ثبت‌نام در دوره‌ها، معرفی سایت به دیگران و عضویت در شبکه‌های اجتماعی من است.
+    با تشکر.
   </p>
-  <h3 data-i18n="guide">How to Use the Site</h3>
+
+  <h3>آموزش کار با سایت</h3>
   <ul>
-    <li data-i18n="g1">Use top menu to navigate</li>
-    <li data-i18n="g2">Search courses easily</li>
-    <li data-i18n="g3">Buy courses using green button</li>
-    <li data-i18n="g4">Watch live classes</li>
+    <li>استفاده از منوی بالا برای جابجایی بین صفحات</li>
+    <li>جستجوی دوره‌ها در صفحه دوره‌ها</li>
+    <li>خرید دوره از دکمه سبز رنگ</li>
+    <li>مشاهده کلاس‌های زنده در صفحه پخش زنده</li>
   </ul>
 </section>
 
 <!-- ===== COURSES ===== -->
 <section id="courses" class="page">
-  <input id="searchInput" class="search" placeholder="Search courses">
+  <input id="searchInput" class="search" placeholder="جستجوی دوره آموزشی...">
   <div class="courses">
-    <div class="course" data-keywords="math ریاضی eighth eighth">
-      <h3>Mathematics Grade 8</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">Buy Course</a>
+
+    <div class="course" data-keywords="ریاضی هشتم">
+      <h3>ریاضیات پایه هشتم</h3>
+      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
     </div>
-    <div class="course" data-keywords="math ریاضی seventh">
-      <h3>Mathematics Grade 7</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">Buy Course</a>
+
+    <div class="course" data-keywords="ریاضی هفتم">
+      <h3>ریاضیات پایه هفتم</h3>
+      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
     </div>
-    <div class="course" data-keywords="physics فیزیک">
-      <h3>Physics Grade 7</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">Buy Course</a>
+
+    <div class="course" data-keywords="فیزیک هفتم">
+      <h3>فیزیک پایه هفتم</h3>
+      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
     </div>
-    <div class="course" data-keywords="astronomy نجوم">
-      <h3>Astronomy</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">Buy Course</a>
+
+    <div class="course" data-keywords="هوش مصنوعی">
+      <h3>دوره آموزش هوش مصنوعی</h3>
+      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
     </div>
-    <div class="course" data-keywords="chess شطرنج">
-      <h3>Chess</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">Buy Course</a>
+
+    <div class="course" data-keywords="نجوم">
+      <h3>دوره آموزشی نجوم</h3>
+      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
     </div>
+
+    <div class="course" data-keywords="شطرنج">
+      <h3>دوره آموزشی شطرنج</h3>
+      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
+    </div>
+
   </div>
 </section>
 
@@ -154,47 +168,39 @@ Please support by enrolling in courses and sharing the site.
 
 <footer>
 <p>📞 09050944755 | ✉️ emadreza1591@gmail.com</p>
-<p>📍 Iran - Mashhad</p>
+<p>📍 ایران، مشهد</p>
 </footer>
 
 <div id="chatBtn">💬</div>
 <div id="chatBox">
   <div id="chatMessages"></div>
-  <input id="chatInput" placeholder="Type your message...">
+  <input id="chatInput" placeholder="پیام خود را بنویسید...">
 </div>
 
 <script>
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
-// Page search
+// جستجوی صفحات
 const pageSearch=document.getElementById('pageSearch');
 pageSearch.addEventListener('keyup',()=>{
-  const v=pageSearch.value.toLowerCase();
-  if(v.includes('about')) showPage('about');
-  else if(v.includes('course')) showPage('courses');
-  else if(v.includes('live')) showPage('live');
-  else if(v.includes('home')) showPage('home');
+  const v=pageSearch.value;
+  if(v.includes('خانه')) showPage('home');
+  if(v.includes('درباره')) showPage('about');
+  if(v.includes('دوره')) showPage('courses');
+  if(v.includes('زنده')) showPage('live');
 });
 
-// Course search
+// جستجوی دوره
 const searchInput=document.getElementById('searchInput');
-if(searchInput){searchInput.addEventListener('keyup',()=>{const v=searchInput.value.toLowerCase();document.querySelectorAll('.course').forEach(c=>{c.style.display=c.dataset.keywords.includes(v)?'block':'none';});});}
+if(searchInput){searchInput.addEventListener('keyup',()=>{const v=searchInput.value;document.querySelectorAll('.course').forEach(c=>{c.style.display=c.dataset.keywords.includes(v)?'block':'none';});});}
 
-// Chat
+// چت
 const chatBtn=document.getElementById('chatBtn');
 const chatBox=document.getElementById('chatBox');
 const chatMessages=document.getElementById('chatMessages');
 const chatInput=document.getElementById('chatInput');
 chatBtn.onclick=()=>chatBox.style.display=chatBox.style.display==='block'?'none':'block';
 chatInput.addEventListener('keypress',e=>{if(e.key==='Enter'){chatMessages.innerHTML+='<div>'+chatInput.value+'</div>';chatInput.value='';}});
-
-// Full Translation
-const dict={
-fa:{siteName:'عماد رضا عباس پور',home:'خانه',about:'درباره ما',courses:'دوره‌ها',live:'پخش زنده',welcome:'به پلتفرم آموزش هوشمند خوش آمدید',homeText:'این پلتفرم برای ارتقا سطح علمی جامعه با روش‌های مدرن طراحی شده است.',why:'چرا ما؟',f1:'آموزش مفهومی',f2:'هوش مصنوعی',f3:'مدرس متخصص',f4:'مهارت‌های آینده',sample:'نمونه آموزش',sampleText:'در این نمونه آموزش با تفکر تحلیلی آشنا می‌شوید.',aboutTitle:'معرفی من',aboutText:'من عماد رضا عباس پور هستم مدرس هوش مصنوعی و ریاضیات و علوم پیشرفته و نجوم و شطرنج و برنامه‌نویس و طراح سایت. این سایت را برای ارتقا سطح علمی مردم ایران ساختم.',guide:'آموزش کار با سایت',g1:'استفاده از منوی بالا',g2:'جستجوی آسان دوره‌ها',g3:'خرید دوره از دکمه سبز',g4:'مشاهده کلاس زنده'},
-en:{siteName:'Emad Reza Abbaspour',home:'Home',about:'About',courses:'Courses',live:'Live',welcome:'Welcome to Smart Education Platform',homeText:'This platform is designed to improve scientific knowledge using modern methods.',why:'Why Choose Us?',f1:'Conceptual Learning',f2:'Artificial Intelligence',f3:'Expert Instructor',f4:'Future Skills',sample:'Sample Lesson',sampleText:'In this sample lesson you learn analytical thinking.',aboutTitle:'About Me',aboutText:'I am Emad Reza Abbaspour, instructor of AI, mathematics, sciences, astronomy and chess.',guide:'How to Use the Site',g1:'Use top menu',g2:'Search courses easily',g3:'Buy using green button',g4:'Watch live classes'},
-ar:{siteName:'عماد رضا عباس بور',home:'الرئيسية',about:'من نحن',courses:'الدورات',live:'بث مباشر',welcome:'مرحباً بكم في منصة التعليم الذكي',homeText:'تم إنشاء هذه المنصة لرفع المستوى العلمي باستخدام أساليب حديثة.',why:'لماذا نحن؟',f1:'تعليم مفاهيمي',f2:'الذكاء الاصطناعي',f3:'مدرس خبير',f4:'مهارات المستقبل',sample:'درس نموذجي',sampleText:'في هذا الدرس تتعلم التفكير التحليلي.',aboutTitle:'نبذة عني',aboutText:'أنا عماد رضا عباس بور مدرس الذكاء الاصطناعي والرياضيات والعلوم والفلك والشطرنج.',guide:'كيفية استخدام الموقع',g1:'استخدم القائمة العلوية',g2:'ابحث عن الدورات',g3:'اشتر من الزر الأخضر',g4:'شاهد البث المباشر'}
-};
-function setLang(l){document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;el.innerText=dict[l][k]||el.innerText;});}
 </script>
 
 </body>
