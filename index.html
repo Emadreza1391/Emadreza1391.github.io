@@ -7,12 +7,12 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:tahoma;background:linear-gradient(135deg,#020617,#0f172a);color:#fff}
 a{text-decoration:none;color:#fff}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;border-radius:10px}
 
 /* ===== NAVBAR ===== */
 .navbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:15px 30px;background:#020617;position:sticky;top:0;z-index:100}
 .logo{font-size:22px;font-weight:bold}
-.navbar nav a{margin:0 5px;padding:8px 16px;border-radius:30px;cursor:pointer;transition:.4s}
+.navbar nav a{margin:0 5px;padding:8px 16px;border-radius:30px;cursor:pointer;transition:.4s;display:inline-block}
 .navbar nav a:hover{background:#38bdf8;color:#000;transform:scale(1.15)}
 .top-search{max-width:300px;padding:8px 15px;border-radius:25px;border:none}
 
@@ -24,24 +24,21 @@ img{max-width:100%;display:block}
 /* ===== HOME ===== */
 .hero{text-align:center;max-width:1100px;margin:auto}
 .hero h1{font-size:40px}
-.hero p{line-height:2;font-size:18px}
-.hero img{width:140px;margin:20px auto}
+.hero p{line-height:2;font-size:18px;margin:20px 0}
+.hero img{width:140px;margin:20px auto;display:block}
 
 .section{margin-top:60px}
 .section h2{text-align:center;margin-bottom:30px}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
-.card{background:#020617;padding:25px;border-radius:25px;text-align:center;transition:.5s}
+.card{background:#020617;padding:25px;border-radius:25px;text-align:center;transition:.5s;cursor:pointer}
 .card:hover{transform:scale(1.1);box-shadow:0 0 30px #38bdf8}
-.card img{width:70px;margin:0 auto 10px}
-
-.sample-video{background:#020617;padding:25px;border-radius:25px}
 
 /* ===== COURSES ===== */
 .search{display:block;margin:20px auto;padding:12px;width:80%;border-radius:30px;border:none}
 .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-.course{background:#020617;padding:20px;border-radius:25px;text-align:center;transition:.5s}
-.course:hover{transform:scale(1.1);box-shadow:0 0 30px #38bdf8}
+.course{background:#020617;padding:20px;border-radius:25px;text-align:center;transition:.5s;cursor:pointer}
+.course:hover{transform:scale(1.05);box-shadow:0 0 25px #38bdf8}
 
 .buy-btn{
 padding:3px 8px;
@@ -50,14 +47,21 @@ color:#fff;
 background-color:#5cb85c;
 display:inline-block;
 margin-top:10px;
+transition:.5s;
 }
+.buy-btn:hover{background-color:#4cae4c;box-shadow:0 0 15px #5cb85c;transform:scale(1.1)}
+
+/* ===== SAMPLE VIDEO ===== */
+.sample-video{background:#020617;padding:25px;border-radius:25px}
 
 /* ===== CHAT ===== */
-#chatBtn{position:fixed;bottom:20px;right:20px;background:#38bdf8;color:#000;padding:15px;border-radius:50%;cursor:pointer;z-index:200}
-#chatBox{display:none;position:fixed;bottom:90px;right:20px;width:280px;background:#020617;padding:15px;border-radius:15px}
+#chatBtn{position:fixed;bottom:20px;right:20px;background:#38bdf8;color:#000;padding:15px;border-radius:50%;cursor:pointer;z-index:200;transition:.3s}
+#chatBtn:hover{transform:scale(1.2)}
+#chatBox{display:none;position:fixed;bottom:90px;right:20px;width:280px;background:#020617;padding:15px;border-radius:15px;z-index:300}
 #chatMessages{height:200px;overflow:auto;border:1px solid #333;margin-bottom:5px;padding:5px}
-#chatInput{width:100%;padding:5px}
+#chatInput{width:100%;padding:5px;border-radius:8px;border:none}
 
+/* ===== FOOTER ===== */
 footer{text-align:center;padding:25px;background:#020617}
 </style>
 </head>
@@ -79,9 +83,7 @@ footer{text-align:center;padding:25px;background:#020617}
   <div class="hero">
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="لوگو">
     <h1>به پلتفرم آموزش هوشمند خوش آمدید</h1>
-    <p>
-      این سایت با هدف ارتقا سطح علمی مردم ایران طراحی شده است و آموزش‌هایی مدرن، مفهومی و آینده‌محور ارائه می‌دهد.
-    </p>
+    <p>این سایت با هدف ارتقا سطح علمی مردم ایران طراحی شده و آموزش‌های مدرن و مفهومی ارائه می‌دهد. شما می‌توانید دوره‌های ریاضی، فیزیک، هوش مصنوعی، نجوم و شطرنج را به‌صورت آنلاین دنبال کنید.</p>
   </div>
 
   <div class="section">
@@ -97,7 +99,7 @@ footer{text-align:center;padding:25px;background:#020617}
   <div class="section">
     <h2>نمونه آموزش (هوش مصنوعی)</h2>
     <div class="sample-video">
-      <div id="46812378643"><script type="text/JavaScript" src="https://www.aparat.com/embed/ntax7bw?data[rnddiv]=46812378643&data[responsive]=yes"></script></div>
+      <div id="46812378643"><script type="text/javascript" src="https://www.aparat.com/embed/ntax7bw?data[rnddiv]=46812378643&data[responsive]=yes"></script></div>
     </div>
   </div>
 </section>
@@ -105,12 +107,7 @@ footer{text-align:center;padding:25px;background:#020617}
 <!-- ===== ABOUT ===== -->
 <section id="about" class="page">
   <h2>معرفی من</h2>
-  <p>
-    من عماد رضا عباس پور هستم مدرس هوش مصنوعی، ریاضیات، علوم پیشرفته، نجوم و شطرنج و همچنین برنامه‌نویس و طراح سایت.
-    این سایت را به منظور ارتقا سطح علمی مردم ایران ساختم تا با آموزش‌های متنوع به رشد جامعه کمک کنم.
-    تنها کاری که شما می‌توانید انجام دهید ثبت‌نام در دوره‌ها، معرفی سایت به دیگران و عضویت در شبکه‌های اجتماعی من است.
-    با تشکر.
-  </p>
+  <p>من عماد رضا عباس پور هستم مدرس هوش مصنوعی، ریاضیات، علوم پیشرفته، نجوم و شطرنج و همچنین برنامه‌نویس و طراح سایت. این سایت را به منظور ارتقا سطح علمی مردم ایران ساختم تا با آموزش‌های متنوع به رشد جامعه کمک کنم. تنها کاری که شما می‌توانید انجام دهید ثبت‌نام در دوره‌ها، معرفی سایت به دیگران و عضویت در شبکه‌های اجتماعی من است. با تشکر.</p>
 
   <h3>آموزش کار با سایت</h3>
   <ul>
@@ -125,37 +122,12 @@ footer{text-align:center;padding:25px;background:#020617}
 <section id="courses" class="page">
   <input id="searchInput" class="search" placeholder="جستجوی دوره آموزشی...">
   <div class="courses">
-
-    <div class="course" data-keywords="ریاضی هشتم">
-      <h3>ریاضیات پایه هشتم</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
-    </div>
-
-    <div class="course" data-keywords="ریاضی هفتم">
-      <h3>ریاضیات پایه هفتم</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
-    </div>
-
-    <div class="course" data-keywords="فیزیک هفتم">
-      <h3>فیزیک پایه هفتم</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
-    </div>
-
-    <div class="course" data-keywords="هوش مصنوعی">
-      <h3>دوره آموزش هوش مصنوعی</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
-    </div>
-
-    <div class="course" data-keywords="نجوم">
-      <h3>دوره آموزشی نجوم</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
-    </div>
-
-    <div class="course" data-keywords="شطرنج">
-      <h3>دوره آموزشی شطرنج</h3>
-      <a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a>
-    </div>
-
+    <div class="course" data-keywords="ریاضی هشتم"><h3>ریاضیات پایه هشتم</h3><a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a></div>
+    <div class="course" data-keywords="ریاضی هفتم"><h3>ریاضیات پایه هفتم</h3><a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a></div>
+    <div class="course" data-keywords="فیزیک هفتم"><h3>فیزیک پایه هفتم</h3><a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a></div>
+    <div class="course" data-keywords="هوش مصنوعی"><h3>دوره آموزش هوش مصنوعی</h3><a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a></div>
+    <div class="course" data-keywords="نجوم"><h3>دوره آموزشی نجوم</h3><a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a></div>
+    <div class="course" data-keywords="شطرنج"><h3>دوره آموزشی شطرنج</h3><a href="https://digiform.ir/wc93b44ba" target="_blank" class="buy-btn">خرید دوره آموزشی</a></div>
   </div>
 </section>
 
@@ -171,13 +143,33 @@ footer{text-align:center;padding:25px;background:#020617}
 <p>📍 ایران، مشهد</p>
 </footer>
 
+<!-- ===== CHAT ===== -->
 <div id="chatBtn">💬</div>
 <div id="chatBox">
   <div id="chatMessages"></div>
   <input id="chatInput" placeholder="پیام خود را بنویسید...">
 </div>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAbf2WjILg2Da7WFIgRf5d4Uhi759X0CSE",
+  authDomain: "chatt-onlin.firebaseapp.com",
+  databaseURL: "https://chatt-onlin-default-rtdb.firebaseio.com",
+  projectId: "chatt-onlin",
+  storageBucket: "chatt-onlin.firebasestorage.app",
+  messagingSenderId: "662045458756",
+  appId: "1:662045458756:web:c53d211c3cb7de3dfad711",
+  measurementId: "G-QP37G2BVSF"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+</script>
+
+<script>
+// ===== PAGE NAVIGATION =====
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
 // جستجوی صفحات
@@ -190,17 +182,37 @@ pageSearch.addEventListener('keyup',()=>{
   if(v.includes('زنده')) showPage('live');
 });
 
-// جستجوی دوره
+// جستجوی دوره‌ها
 const searchInput=document.getElementById('searchInput');
-if(searchInput){searchInput.addEventListener('keyup',()=>{const v=searchInput.value;document.querySelectorAll('.course').forEach(c=>{c.style.display=c.dataset.keywords.includes(v)?'block':'none';});});}
+if(searchInput){searchInput.addEventListener('keyup',()=>{
+  const v=searchInput.value;
+  document.querySelectorAll('.course').forEach(c=>{
+    c.style.display=c.dataset.keywords.includes(v)?'block':'none';
+  });
+});}
 
-// چت
+// ===== CHAT =====
 const chatBtn=document.getElementById('chatBtn');
 const chatBox=document.getElementById('chatBox');
 const chatMessages=document.getElementById('chatMessages');
 const chatInput=document.getElementById('chatInput');
+
 chatBtn.onclick=()=>chatBox.style.display=chatBox.style.display==='block'?'none':'block';
-chatInput.addEventListener('keypress',e=>{if(e.key==='Enter'){chatMessages.innerHTML+='<div>'+chatInput.value+'</div>';chatInput.value='';}});
+
+// ارسال پیام به Firebase
+chatInput.addEventListener('keypress',e=>{
+  if(e.key==='Enter' && chatInput.value.trim()!==''){
+    db.ref('messages').push({text:chatInput.value,time:Date.now()});
+    chatInput.value='';
+  }
+});
+
+// دریافت پیام‌ها به صورت زنده
+db.ref('messages').on('child_added',snapshot=>{
+  const msg=snapshot.val();
+  chatMessages.innerHTML+='<div>'+msg.text+'</div>';
+  chatMessages.scrollTop=chatMessages.scrollHeight;
+});
 </script>
 
 </body>
